@@ -1,0 +1,45 @@
+Example FILE value from Ancestry.com GEDCOM
+http://trees.ancestry.com/rd?f=image&guid=0d5ff781-54b9-499c-80c1-4d4531b31208&tid=14751255&pid=6
+With Format
+http://trees.ancestry.com/rd?f=image^guid=A-B-C-D-E&tide=F&pid=6
+
+Bounces to a page like this
+https://www.ancestry.com/family-tree/tree/14751255/media/0d5ff78154b9499c80c14d4531b31208
+With Format
+https://www.ancestry.com/family-tree/tree/F/media/ABCDE
+
+"View Original" + Right Click View Images takes you to this page
+https://mediasvc.ancestry.com/v2/image/namespaces/1093/media/0d5ff781-54b9-499c-80c1-4d4531b31208?client=TreesUI
+With Format
+https://mediasvc.ancestry.com/v2/image/namespaces/NAMESPACE/media/A-B-C-D-E?client=TreesUI
+
+The NAMESPACE section is 1093 for this image.  The same image shows up for 1093, 1094, 1095, 1096.  1092 and 1097 (and seemingly all other numbers) fail.
+
+Totally random images (unrelated to my example family) are also shown with NAMESPACE = 1093 hyperlinks
+https://commons.wikimedia.org/wiki/File:Frederick_Friedrich_Trump_2.jpg
+https://en.wikipedia.org/wiki/Merrill_Lock_No._6
+https://www.eupedia.com/forum/archive/index.php/t-37224.html
+These other files are available with NAMESPACE 1094, 1095, & 1096 too (but not 1092 or 1097)
+
+Perhaps these are different, mirrored, media servers.
+
+I can probabaly assume 1093 (or perhaps try 1093 first and then try 1094, 1095, & 1096 if 1093 doesn't work)
+
+ancestrydownloader.py & gedscrub.py code says:
+A = components[3]
+B = components[4]
+C = components[5]
+D = components[6]
+E = components[7]
+F = components[9]
+
+
+
+PROBLEM URL (3 out of my 4 test URLs are a problem)
+http://trees.ancestry.com/rd?f=image&guid=85fa8251-ab03-456b-9c5c-1d3313a9beb7&tid=14751255&pid=1146
+
+goes to
+https://www.ancestry.com/family-tree/tree/14751255/media/85fa8251ab03456b9c5c1d3313a9beb7
+
+but then goes to here which is a totally diff value... probably points to the "first" upload of the file
+https://mediasvc.ancestry.com/v2/image/namespaces/1093/media/42ef720d-d909-4b0a-b06c-06a848de5628?client=TreesUI

@@ -1,0 +1,40 @@
+MYHERITAGE CUSTOM TAGS
+2 _RTLSAVE RTL
+1 _PROJECT_GUID 51C34FFD76D93DEA0485B39D332A3178
+1 _EXPORTED_FROM_SITE_ID 194229761
+1 _UPD 11 FEB 2019 17:24:38 GMT -0500 
+2 _PRIM Y
+2 _CUTOUT Y
+2 _PARENTRIN MH:P500064
+2 _PERSONALPHOTO Y
+2 _PHOTO_RIN MH:P500065
+2 _PRIM_CUTOUT Y
+2 _PARENTPHOTO Y
+
+MYHERITAGE IMPORTED HTML
+2 NOTE <p>Birth may be Nov 23 1860</p>
+	<p> = start paragraph
+	</p> = end paragraph
+3 TEXT Thomas O&#039;Neil&amp;lt;br&amp;gt;Gender: Male&amp;lt;br&amp;gt;Birth: Circa 1861 - Ireland&amp;lt;br&amp;gt;Residence: 1920 - Douglas, Nebraska, USA&amp;lt;br&amp;gt;Age: 59&amp;lt;br&amp;gt;Marita
+	&#039; = '
+	&amp;lt;br&amp;gt;
+		&amp; = &
+		&lt; = <
+		&gt; = >
+		this says &<br>
+	
+	
+https://www.html.am/reference/html-special-characters.cfm
+https://rushter.com/blog/python-fast-html-parser/
+
+THIS TURNS &#039l into ' &amp; into & and a 2nd run turns &lt; into < and &gt; into >
+from html.parser import HTMLParser
+html = '3 TEXT Thomas O&#039;Neil&amp;lt;br&amp;gt;Gender: Male&amp;lt;br&amp;gt;Birth: Circa 1861 - Ireland&amp;lt;br&amp;gt;Residence: 1920 - Douglas, Nebraska, USA&amp;lt;br&amp;gt;Age: 59&amp;lt;br&amp;gt;Marita'
+h = HTMLParser()
+html2 = h.unescape(html)
+print(html2) ======>>>>3 TEXT Thomas O'Neil<br>Gender: Male<br>Birth: Circa 1861 - Ireland<br>Residence: 1920 - Douglas, Nebraska, USA<br>Age: 59<br>Marita
+
+Next step is to convert <br> into 4 CONC
+
+
+FIGURE OUT HOW TO FIND TAGLESS LINES IN GEDCOM AND CONVERT THEM INTO CONC
